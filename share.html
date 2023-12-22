@@ -126,20 +126,16 @@
         var app = {
           launchApp: function () {
             if (product) {
-              console.log(`Launching app with Product ID: ${product}`);
               window.location.replace(`kinu.shopping.app://product/${product}`);
             } else if (seller) {
-              console.log(`Launching app with Seller ID: ${seller}`);
               window.location.replace(`kinu.shopping.app://seller/${seller}`);
             } else {
               console.log("No valid parameters found for app launch.");
             }
           },
         };
-
         app.launchApp();
       }
-
       launchApp();
     </script>
   </body>
