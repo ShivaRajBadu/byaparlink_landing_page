@@ -16,7 +16,7 @@
         max-width: 1440px;
         width: 90%;
         margin: 0 auto;
-        height: 90vh;
+        height: 80vh;
         /* background-color: brown; */
         color: #fff;
         position: relative;
@@ -108,20 +108,39 @@
       </div>
     </div>
     <script>
-      (function () {
+      function getQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const params = {};
+        for (const [key, value] of urlParams) {
+          params[key] = value;
+        }
+        return params;
+      }
+
+      const queryParams = getQueryParams();
+
+      const product = queryParams.product;
+      const seller = queryParams.seller;
+
+      function launchApp() {
         var app = {
           launchApp: function () {
-            window.location.replace("kinu.shopping.app://");
-            // this.timer = setTimeout(this.openWebApp, 10000);
+            if (product) {
+              console.log(`Launching app with Product ID: ${product}`);
+              window.location.replace(`kinu.shopping.app://product/${product}`);
+            } else if (seller) {
+              console.log(`Launching app with Seller ID: ${seller}`);
+              window.location.replace(`kinu.shopping.app://seller/${seller}`);
+            } else {
+              console.log("No valid parameters found for app launch.");
+            }
           },
-          //   openWebApp: function () {
-          //     window.location.replace(
-          //       "https://play.google.com/store/apps/details?id=kinu.shopping.app"
-          //     );
-          //   },
         };
+
         app.launchApp();
-      })();
+      }
+
+      launchApp();
     </script>
   </body>
 </html>
