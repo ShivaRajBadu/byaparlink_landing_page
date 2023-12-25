@@ -126,11 +126,11 @@
         var app = {
           launchApp: function () {
             if (product) {
-              window.location.replace(`kinu.shopping.app://product/${product}`);
+              window.location.replace(`byaparlink.com://product/${product}`);
             } else if (seller) {
-              window.location.replace(`kinu.shopping.app://seller/${seller}`);
+              window.location.replace(`byaparlink.com://seller/${seller}`);
             } else {
-              console.log("No valid parameters found for app launch.");
+              window.location.replace(`byaparlink.com://`);
             }
           },
         };
