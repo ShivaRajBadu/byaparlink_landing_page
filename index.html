@@ -11,598 +11,547 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- <link rel="stylesheet" href="assets/css/main.css" /> -->
   </head>
+  <style>
+    @font-face {
+      font-family: "bands";
+      src: url("./assets/webfonts/fa-brands-400.eot")
+          format("embedded-opentype"),
+        url("./assets/webfonts/fa-brands-400.svg") format("svg"),
+        url("./assets/webfonts/fa-brands-400.ttf") format("truetype"),
+        url("./assets/webfonts/fa-brands-400.woff") format("woff"),
+        url("./assets/webfonts/fa-brands-400.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "regular";
+      src: url("./assets/webfonts/fa-regular-400.eot")
+          format("embedded-opentype"),
+        url("./assets/webfonts/fa-regular-400.svg") format("svg"),
+        url("./assets/webfonts/fa-regular-400.ttf") format("truetype"),
+        url("./assets/webfonts/fa-regular-400.woff") format("woff"),
+        url("./assets/webfonts/fa-regular-400.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "solid";
+      src: url("./assets/webfonts/fa-solid-900.svg") format("svg"),
+        url("./assets/webfonts/fa-solid-900.eot") format("embedded-opentype"),
+        url("./assets/webfonts/fa-solid-900.ttf") format("truetype"),
+        url("./assets/webfonts/fa-solid-900.woff") format("woff"),
+        url("./assets/webfonts/fa-solid-900.woff2") format("woff2");
+    }
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "regular";
+      /* background-color: #e29447; */
+    }
+    .wrapper {
+      max-width: 1440px;
+      width: 90%;
+      margin: 0 auto;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    ul {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    /* navbar */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo-container {
+      max-width: 200px;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .nav-link {
+      margin-left: 1rem;
+    }
+    .nav-link > a {
+      font-size: 18px;
+      color: #000;
+      font-weight: 900;
+      font-family: "solid";
+      transition: color 0.25s ease-in-out;
+    }
+    .nav-link .home {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      color: #e29447;
+    }
+    .nav-link > a:hover {
+      color: #e29447;
+    }
+    /* hero section */
+
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero-section .main-title {
+      font-size: 40px;
+      font-weight: 900;
+      padding-bottom: 10rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: 2px;
+    }
+
+    .hero-section .images-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    .hero-section .image-container {
+      width: 90%;
+      max-width: 900px;
+    }
+    .about-section .main-title {
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 1.4em;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .about-section .highlight {
+      color: #e29447;
+      font-weight: 900;
+      font-size: 35px;
+    }
+
+    /* why choose us */
+
+    .why-choose-section {
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .why-choose-container {
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .why-choose-container .main-title {
+      font-size: 30px;
+      padding-top: 2rem;
+      padding-bottom: 6rem;
+      text-decoration: underline;
+      text-decoration-thickness: 4px;
+      text-decoration-style: dashed;
+      text-underline-offset: 8px;
+      text-decoration-color: #e29447;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      row-gap: 4rem;
+      column-gap: 3rem;
+    }
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .icon-container {
+      max-width: 80px;
+      border: 4px solid #e29447;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .grid-item .title {
+      font-size: 22px;
+      font-weight: 600;
+      padding: 1rem 0;
+    }
+    .grid-item .description {
+      padding: 0.7rem 0;
+      color: #000000b6;
+      line-height: 1.4em;
+    }
+    .contact-section {
+      padding: 4rem 0;
+    }
+    .contact-container {
+      display: flex;
+      gap: 2rem;
+    }
+    .contact-info {
+      width: 50%;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .contact-section .main-title {
+      font-size: 35px;
+      font-weight: 600;
+      padding-bottom: 2rem;
+      text-decoration: underline;
+      text-decoration-thickness: 4px;
+      text-decoration-style: dotted;
+      text-underline-offset: 8px;
+      text-decoration-color: #e29447;
+    }
+    .contact-details-title {
+      font-size: 16px;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .legal-link {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.6rem;
+      text-decoration: underline;
+      transition: color 0.25s ease-in-out;
+    }
+    .legal-link:hover {
+      color: #e29447;
+    }
+    .social {
+    }
+
+    .social-icons-container {
+      display: flex;
+      align-items: self-start;
+    }
+    .social-icons-container > img {
+      max-width: 4%;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+    .contact-form {
+      width: 50%;
+    }
+    .form-title {
+      font-size: 22px;
+      margin-bottom: 1rem;
+      color: #e29447;
+      font-weight: 600;
+    }
+    .input-container {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+    .name-input,
+    .email-input {
+      width: 50%;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid grey;
+    }
+    .message-input {
+      width: 100%;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .email-input:focus-visible,
+    .name-input:focus-visible,
+    .message-input:focus-visible {
+      outline-color: rgb(88, 211, 211);
+    }
+
+    @media screen and (max-width: 768px) {
+      .wrapper {
+        width: 95%;
+      }
+      .logo-container {
+        max-width: 150px;
+      }
+      .nav-link > a {
+        font-size: 16px;
+      }
+      /* hero section */
+      .main-title {
+        font-size: 26px;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+      }
+      .hero-section .images-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero-section .image-container {
+        width: 90%;
+        max-width: 400px;
+      }
+      .contact-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .contact-form,
+      .contact-info {
+        width: 100%;
+      }
+      .contact-details {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
   <body class="is-preload">
     <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Intro -->
-      <section class="intro">
-        <header>
-          <h1>Byapar Link</h1>
-          <p>
-            Connecting Your bussiness with Customers
-            <!-- <a href="https://twitter.com/ajlkn">@ajlkn</a> /
-            <a href="https://html5up.net">HTML5 UP</a> -->
-          </p>
-          <ul class="actions">
-            <li>
-              <a href="#first" class="arrow scrolly"
-                ><span class="label">Next</span></a
+    <div class="wrapper">
+      <header class="header">
+        <div class="logo-container">
+          <img src="/images/icons/logo.png" alt="logo" class="logo" />
+        </div>
+        <nav class="nav">
+          <ul class="nav-links">
+            <li class="nav-link"><a class="home" href="#">Home</a></li>
+
+            <li class="nav-link">
+              <a
+                target="_blank"
+                href="https://play.google.com/store/apps/details?id=com.byaparlink.byaparlink&pcampaignid=web_share"
+                >Download App</a
               >
             </li>
           </ul>
-        </header>
-        <div class="content">
-          <span class="image fill" data-position="center"
-            ><img src="images/1.png" alt=""
-          /></span>
-        </div>
-      </section>
-
-      <!-- Section -->
-      <section id="first">
-        <header>
-          <h2>All Ecommerce products</h2>
-        </header>
-        <div class="content">
-          <p>
-            <strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing
-            elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad
-            litora torquent per conubia nostra, per inceptos himenaeos. Etiam
-            tristique libero eu nibh porttitor amet fermentum. Nullam venenatis
-            erat id vehicula ultrices sed ultricies condimentum. Magna sed etiam
-            consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et
-            dolor libero, feugiat magna tempus, sed et lorem adipiscing.
-          </p>
-          <span class="image main"><img src="images/2.png" alt="" /></span>
-        </div>
-      </section>
-      <!-- Section -->
-      <section id="first_second">
-        <header>
-          <h2>All Ecommerce products</h2>
-        </header>
-        <div class="content">
-          <p>
-            <strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing
-            elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad
-            litora torquent per conubia nostra, per inceptos himenaeos. Etiam
-            tristique libero eu nibh porttitor amet fermentum. Nullam venenatis
-            erat id vehicula ultrices sed ultricies condimentum. Magna sed etiam
-            consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et
-            dolor libero, feugiat magna tempus, sed et lorem adipiscing.
-          </p>
-          <span class="image main"><img src="images/3.png" alt="" /></span>
-        </div>
-      </section>
-
-      <!-- Section -->
-      <section>
-        <header>
-          <h2>Feugiat consequat tempus ultrices</h2>
-        </header>
-        <div class="content">
-          <p>
-            <strong>Etiam tristique libero</strong> eu nibh porttitor amet
-            fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies
-            condimentum.
-          </p>
-          <ul class="feature-icons">
-            <li class="icon solid fa-laptop">Consequat tempus</li>
-            <li class="icon solid fa-bolt">Etiam adipiscing</li>
-            <li class="icon solid fa-signal">Libero nullam</li>
-            <li class="icon solid fa-cog">Blandit condimentum</li>
-            <li class="icon solid fa-map-marker-alt">Lorem ipsum dolor</li>
-            <li class="icon solid fa-code">Nibh amet venenatis</li>
-          </ul>
-          <p>
-            Vehicula ultrices sed ultricies condimentum. Magna sed etiam
-            consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et
-            dolor libero, feugiat magna tempus, sed et lorem adipiscing.
-          </p>
-        </div>
-      </section>
-
-      <!-- Section -->
-      <section>
-        <!-- <header>
-          <h2>Ultrices erat magna sed condimentum</h2>
-        </header>
-        <div class="content">
-          <p>
-            <strong>Integer mollis egestas</strong> nam maximus erat id euismod
-            egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.
-          </p> -->
-
-          <!-- Section -->
-          <!-- <section>
-            <header>
-              <h3>Erat aliquam</h3>
-              <p>
-                Vehicula ultrices dolor amet ultricies et condimentum. Magna sed
-                etiam consequat, et lorem adipiscing sed dolor sit amet,
-                consectetur amet do eiusmod tempor incididunt ipsum suspendisse
-                ultrices gravida.
-              </p>
-            </header>
-            <div class="content">
-              <div class="gallery">
-                <a href="images/gallery/fulls/01.jpg" class="landscape"
-                  ><img src="images/gallery/thumbs/01.jpg" alt=""
-                /></a>
-                <a href="images/gallery/fulls/02.jpg"
-                  ><img src="images/gallery/thumbs/02.jpg" alt=""
-                /></a>
-                <a href="images/gallery/fulls/03.jpg"
-                  ><img src="images/gallery/thumbs/03.jpg" alt=""
-                /></a>
-                <a href="images/gallery/fulls/04.jpg" class="landscape"
-                  ><img src="images/gallery/thumbs/04.jpg" alt=""
-                /></a>
-              </div>
+        </nav>
+      </header>
+      <section class="hero-section">
+        <div class="hero-container">
+          <h1 class="main-title">Everything you need in one place</h1>
+          <div class="images-container">
+            <div class="image-container">
+              <img class="image" src="./images/1.png" alt="image" />
             </div>
-          </section> -->
-
-          <!-- Section -->
-          <!-- <section>
-            <header>
-              <h3>Nisl consequat</h3>
-              <p>
-                Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-                aliquam sed facilisis ante interdum congue. Integer mollis, nisl
-                amet convallis, porttitor magna ullamcorper, amet mauris. Ut
-                magna finibus nisi nec lacinia ipsum maximus.
-              </p>
-            </header>
-            <div class="content">
-              <div class="gallery">
-                <a href="images/gallery/fulls/05.jpg" class="landscape"
-                  ><img src="images/gallery/thumbs/05.jpg" alt=""
-                /></a>
-                <a href="images/gallery/fulls/06.jpg"
-                  ><img src="images/gallery/thumbs/06.jpg" alt=""
-                /></a>
-                <a href="images/gallery/fulls/07.jpg"
-                  ><img src="images/gallery/thumbs/07.jpg" alt=""
-                /></a>
-              </div>
+            <div class="image-container">
+              <img class="image" src="./images/2.png" alt="image" />
             </div>
-          </section> -->
-
-          <!-- Section -->
-          <!-- <section>
-            <header>
-              <h3>Lorem gravida</h3>
-              <p>
-                Proin aliquam facilisis ante interdum. Sed nulla amet lorem
-                feugiat tempus aenean ornare velit lacus, ac varius sed enim
-                lorem ullamcorper dolore. ac varius enim lorem ullamcorper
-                dolore. Proin aliquam facilisis.
-              </p>
-            </header>
-            <div class="content">
-              <div class="gallery">
-                <a href="images/gallery/fulls/08.jpg" class="portrait"
-                  ><img src="images/gallery/thumbs/08.jpg" alt=""
-                /></a>
-                <a href="images/gallery/fulls/09.jpg" class="portrait"
-                  ><img src="images/gallery/thumbs/09.jpg" alt=""
-                /></a>
-                <a href="images/gallery/fulls/10.jpg" class="landscape"
-                  ><img src="images/gallery/thumbs/10.jpg" alt=""
-                /></a>
-              </div>
+            <div class="image-container">
+              <img class="image" src="./images/3.png" alt="image" />
             </div>
-          </section>
+          </div>
         </div>
-      </section> -->
-
-      <!-- Section -->
-      <!-- <section>
-        <header>
-          <h2>Duis sed adpiscing veroeros amet</h2>
-        </header>
-        <div class="content">
-          <p>
-            <strong>Proin tempus feugiat</strong> sed varius enim lorem
-            ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim
-            lorem ullamcorper dolore.
-          </p>
-          <ul class="actions">
-            <li><a href="#" class="button primary large">Get Started</a></li>
-            <li><a href="#" class="button large">Learn More</a></li>
-          </ul>
-        </div>
-      </section> -->
-
-      <!-- Elements -->
-      <!--
-					<section>
-						<header>
-							<h2>Elements</h2>
-						</header>
-						<div class="content">
-
-							<section>
-								<header>
-									<h3>Text</h3>
-								</header>
-								<div class="content">
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<hr />
-									<h5>Blockquote</h5>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h5>Preformatted</h5>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-  print 'Iteration ' + i;
-  deck.shuffle();
-  i++;
-}
-
-print 'Sorted in ' + i + ' iterations.';</code></pre>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Lists</h3>
-								</header>
-								<div class="content">
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Table</h3>
-								</header>
-								<div class="content">
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Buttons</h3>
-								</header>
-								<div class="content">
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button large">Large</a></li>
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Form</h3>
-								</header>
-								<div class="content">
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</div>
-							</section>
-
-						</div>
-					</section>
-				-->
-
-      <!-- Section -->
-      <section>
-        <header>
-          <h2>Get in touch</h2>
-        </header>
-        <div class="content">
-          <p>
-            <strong>Auctor commodo</strong> interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet
-            dolor mattis sagittis.
-          </p>
-          <form>
-            <div class="fields">
-              <div class="field half">
-                <input type="text" name="name" id="name" placeholder="Name" />
-              </div>
-              <div class="field half">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
+      </section>
+      <section class="about-section">
+        <h1 class="main-title">
+          <span class="highlight">Welcome to Byaparlink</span> - your ultimate
+          destination for all things convenience in Nepal! Discover a seamless
+          shopping experience where you can find products and food items closest
+          to your location. With a wide range of options and swift delivery
+          services, we're here to make your shopping experience effortless and
+          enjoyable. Explore, order, and enjoy the convenience brought to you by
+          Byaparlink today!
+        </h1>
+      </section>
+      <section class="why-choose-section">
+        <div class="why-choose-container">
+          <h1 class="main-title">Why choose Byaparlink?</h1>
+          <div class="grid-container">
+            <div class="grid-item">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="/images/icons/shopping.svg"
+                  alt="e-commerce"
                 />
               </div>
-              <div class="field">
-                <textarea
-                  name="message"
-                  id="message"
-                  placeholder="Message"
-                  rows="7"
-                ></textarea>
-              </div>
+              <h2 class="title">E-commerce</h2>
+              <p class="description">
+                Byaparlink provides a convenient online shopping experience,
+                allowing users to browse and purchase a wide variety of products
+                from the comfort of their mobile devices.
+              </p>
             </div>
-            <ul class="actions">
-              <li>
-                <input
-                  type="submit"
-                  value="Send Message"
-                  class="button primary"
+            <div class="grid-item">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="/images/icons/restaurant.svg"
+                  alt="restaurant"
                 />
+              </div>
+              <h2 class="title">Restaurant</h2>
+              <p class="description">
+                The app caters to the food industry by connecting users with
+                local restaurants. Users can explore diverse dining options and
+                place orders directly through the app.
+              </p>
+            </div>
+            <div class="grid-item">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="/images/icons/fast-delivery-svgrepo-com.svg"
+                  alt="fast delivery"
+                />
+              </div>
+              <h2 class="title">Fast Delivery</h2>
+              <p class="description">
+                Byaparlink prioritizes quick and efficient delivery services,
+                ensuring that users receive their orders promptly. This feature
+                enhances the overall customer experience by minimizing waiting
+                times.
+              </p>
+            </div>
+            <div class="grid-item">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="/images/icons/customer-support.svg"
+                  alt="customer-support"
+                />
+              </div>
+              <h2 class="title">Customer support</h2>
+              <p class="description">
+                Byaparlink offers dedicated customer support to address any
+                queries, concerns, or issues users may have. This commitment to
+                excellent customer service helps build trust and satisfaction
+                among users.
+              </p>
+            </div>
+            <div class="grid-item">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="/images/icons/close_proximity.svg"
+                  alt="close_proximity"
+                />
+              </div>
+              <h2 class="title">Close Proximity</h2>
+              <p class="description">
+                The app emphasizes the proximity of products and food options,
+                providing users with choices that are geographically closer.
+                This can lead to faster deliveries and potentially fresher
+                products.
+              </p>
+            </div>
+            <div class="grid-item">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="/images/icons/local_business.svg"
+                  alt="local_business"
+                />
+              </div>
+              <h2 class="title">Support local business</h2>
+              <p class="description">
+                Byaparlink encourages users to support local businesses by
+                showcasing and promoting products and services from nearby
+                establishments. This not only benefits users but also
+                contributes to the growth of the local economy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-section">
+        <h1 class="main-title">Get In Touch</h1>
+        <div class="contact-container">
+          <div class="contact-info">
+            <ul class="contact-details">
+              <li class="email">
+                <h3 class="contact-details-title">EMAIL</h3>
+                <p class="contact-details-content">Byaparlink-info@gmail.com</p>
+              </li>
+              <li class="phone">
+                <h3 class="contact-details-title">Phone</h3>
+                <p class="contact-details-content">0000000000</p>
+              </li>
+              <li class="address">
+                <h3 class="contact-details-title">ADDRESS</h3>
+                <p class="contact-details-content">
+                  1234 Somewhere Road, Nashville, TN 00000
+                </p>
+              </li>
+              <li class="legal">
+                <h3 class="contact-details-title">LEGAL LINKS</h3>
+                <a class="legal-link" href="./privacy_policy.html"
+                  >Privacy Policy</a
+                >
+                <a class="legal-link" href="./terms_and_condition.html"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li class="social">
+                <h3 class="contact-details-title">SOCIAL LINKS</h3>
+                <div class="social-icons-container">
+                  <img
+                    class="social-icon"
+                    src="./images/icons/facebook.png"
+                    alt="facebook"
+                  />
+                  <img
+                    class="social-icon"
+                    src="./images/icons/instagram.png"
+                    alt="instagram"
+                  />
+                  <img
+                    class="social-icon"
+                    src="./images/icons/twitter.png"
+                    alt="twitter"
+                  />
+                </div>
               </li>
             </ul>
-          </form>
+          </div>
+          <div class="contact-form">
+            <h3 class="form-title">Send your Thoughts and Suggestions</h3>
+            <div class="input-container">
+              <input
+                class="name-input"
+                type="text"
+                placeholder="Name"
+                name="name"
+                id="name"
+              />
+              <input
+                class="email-input"
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Email"
+              />
+            </div>
+            <textarea
+              class="message-input"
+              placeholder="message"
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
         </div>
-        <footer>
-          <ul class="items">
-            <li>
-              <h3>Email</h3>
-              <a href="#">information@untitled.ext</a>
-            </li>
-            <li>
-              <h3>Phone</h3>
-              <a href="#">(000) 000-0000</a>
-            </li>
-            <li>
-              <h3>Address</h3>
-              <span>1234 Somewhere Road, Nashville, TN 00000</span>
-            </li>
-            <li>
-              <h3>Legal links</h3>
-              <ul>
-                <li><a href="/privacy_policy.html">Privacy Policy</a></li>
-                <li>
-                  <a href="/terms_and_condition.html">Terms & Conditions</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <h3>Elsewhere</h3>
-              <ul class="icons">
-                <li>
-                  <a href="#" class="icon brands fa-twitter"
-                    ><span class="label">Twitter</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="icon brands fa-facebook-f"
-                    ><span class="label">Facebook</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="icon brands fa-instagram"
-                    ><span class="label">Instagram</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="icon brands fa-linkedin-in"
-                    ><span class="label">LinkedIn</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="icon brands fa-github"
-                    ><span class="label">GitHub</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="icon brands fa-codepen"
-                    ><span class="label">Codepen</span></a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </footer>
       </section>
-
-      <!-- Copyright -->
-      <div class="copyright">
-        &copy; Untitled. All rights reserved. Design:
-        <a href="https://html5up.net">HTML5 UP</a>.
-      </div>
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
+    <!-- <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script> -->
   </body>
 </html>
