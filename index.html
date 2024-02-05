@@ -287,6 +287,14 @@
     .send-btn:hover {
       background-color: rgba(228, 151, 74, 0.906);
     }
+    #error {
+      color: red;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: "Roboto";
+      padding-top: 0.3rem;
+      padding-left: 0.4rem;
+    }
 
     @media screen and (max-width: 768px) {
       .wrapper {
@@ -572,7 +580,8 @@
               cols="30"
               rows="10"
             ></textarea>
-            <button class="send-btn">Send</button>
+            <p id="error"></p>
+            <button onclick="sendEmail()" class="send-btn">Send</button>
           </div>
         </div>
       </section>
@@ -585,5 +594,55 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script> -->
+    <script>
+      function sendEmail() {
+        console.log("calee");
+        //get values
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var message = document.getElementById("message");
+        var error = document.getElementById("error");
+        // check if fields are empty and also for email
+        if (name.value == "" && email.value == "" && message.value == "") {
+          console.log("called");
+          name.style.border = "1px solid red";
+          email.style.border = "1px solid red";
+          message.style.border = "1px solid red";
+          error.innerHTML = "Please fill all the fields.";
+          return;
+        } else if (name.value == "") {
+          name.style.border = "1px solid red";
+          return;
+        } else if (email.value == "") {
+          email.style.border = "1px solid red";
+          return;
+        } else if (message.value == "") {
+          message.style.border = "1px solid red";
+          return;
+        }
+        if (
+          !email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+        ) {
+          error.innerHTML = "Please enter a valid email.";
+          return;
+        }
+        var body =
+          "Name: " +
+          name.value +
+          "\nEmail: " +
+          email.value +
+          "\nMessage: " +
+          message.value;
+        //send to email
+        window.location.href =
+          "mailto:linkbyapar@gmail.com?subject=Byaparlink&body=" + body;
+        //clear form
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        error.innerHTML = "";
+        return false;
+      }
+    </script>
   </body>
 </html>
