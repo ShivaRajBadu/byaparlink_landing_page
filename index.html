@@ -227,12 +227,11 @@
 
     .social-icons-container {
       display: flex;
-      align-items: self-start;
+
+      align-items: center;
     }
-    .social-icons-container > img {
-      max-width: 4%;
+    .social-icons-container a {
       margin-right: 1rem;
-      cursor: pointer;
     }
     .social-icon {
       width: 40px;
@@ -495,13 +494,16 @@
               <li class="phone">
                 <h3 class="contact-details-title">Phone</h3>
                 <p class="contact-details-content">
+                  <a style="color: inherit" href="tel:9860077026">9860077026</a>
+                </p>
+                <p class="contact-details-content">
                   <a style="color: inherit" href="tel:9861790823">9861790823</a>
                 </p>
               </li>
               <li class="address">
                 <h3 class="contact-details-title">ADDRESS</h3>
                 <p class="contact-details-content">
-                  1234 Somewhere Road, Nashville, TN 00000
+                  Ward no 6, Pandubazar Suryabinayak nagarpalika, bhaktapur
                 </p>
               </li>
               <li class="legal">
@@ -527,12 +529,19 @@
                       alt="facebook"
                     />
                   </a>
-                  <!-- <img
+                  <a
+                    target="_blank"
                     class="social-icon"
-                    src="./images/icons/instagram.png"
-                    alt="instagram"
-                  />
-                  <img
+                    style="width: 30px"
+                    href="https://www.instagram.com/byaparlink/"
+                  >
+                    <img
+                      class="social-icon"
+                      src="./images/icons/instagram.png"
+                      alt="instagram"
+                    />
+                  </a>
+                  <!-- <img
                     class="social-icon"
                     src="./images/icons/twitter.png"
                     alt="twitter"
